@@ -10,10 +10,14 @@ class WebsitesController < ApplicationController
 
   def create
     @website = Website.new(website_params)
-    if @website.save
-      redirect_to new_website_path, notice: "投稿完了しました"
-    else
+    if params[:back]
       render :new
+    else
+      if @website.save
+        redirect_to new_website_path, notice: "投稿完了しました"
+      else
+        render :new
+      end
     end
   end
 
@@ -21,6 +25,11 @@ class WebsitesController < ApplicationController
   end
 
   def edit
+  end
+
+  def confirm
+    @website = Website.new(website_params)
+    render :new if @website.invalid?
   end
 
   def update
