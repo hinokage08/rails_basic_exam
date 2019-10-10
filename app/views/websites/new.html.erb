@@ -1,0 +1,8 @@
+<%= form_with(model: @website, local: true) do |form| %>
+  </div>
+  <div class="Website_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>

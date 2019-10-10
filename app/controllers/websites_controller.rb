@@ -3,5 +3,6 @@ class WebsitesController < ApplicationController
   end
 
   def new
+    Website.new
   end
 end
