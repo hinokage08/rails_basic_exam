@@ -1,7 +1,15 @@
 <h1>Facebook</h1>
 
+<table>
+  <tr>
+    <th>内容</th>
+  </tr>
 <% @websites.each do |website| %>
   <tr>
     <td><%= website.content %></td>
+    <td><%= link_to '詳細', website_path(website.id) %></td>
   </tr>
 <% end %>
+</table>
+
+<%= link_to '新しく投稿する', new_website_path %>
