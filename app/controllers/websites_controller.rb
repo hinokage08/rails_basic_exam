@@ -1,5 +1,5 @@
 class WebsitesController < ApplicationController
-  before_action :set_website, only: [:show, :edit, :update]
+  before_action :set_website, only: [:show, :edit, :update, :destroy]
   def index
     @websites = Website.all
   end
@@ -29,6 +29,11 @@ class WebsitesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @website.destroy
+    redirect_to websites_path, notice:"投稿を削除しました"
   end
 
   private
