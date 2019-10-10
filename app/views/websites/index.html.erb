@@ -1,2 +1,7 @@
-<h1>Websites#index</h1>
-<p>Find me in app/views/websites/index.html.erb</p>
+<h1>Facebook</h1>
+
+<% @websites.each do |website| %>
+  <tr>
+    <td><%= website.content %></td>
+  </tr>
+<% end %>
