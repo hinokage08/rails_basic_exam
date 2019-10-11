@@ -9,7 +9,7 @@ class WebsitesController < ApplicationController
   end
 
   def create
-    @website = Website.new(website_params)
+    @website = current_user.websites.build(website_params)
     if params[:back]
       render :new
     else
@@ -28,7 +28,7 @@ class WebsitesController < ApplicationController
   end
 
   def confirm
-    @website = Website.new(website_params)
+    @website = current_user.websites.build(website_params)
     render :new if @website.invalid?
   end
 

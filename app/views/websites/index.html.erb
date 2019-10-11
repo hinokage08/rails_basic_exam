@@ -3,10 +3,12 @@
 
 <table>
   <tr>
+    <th>ユーザー名</th>
     <th>内容</th>
   </tr>
 <% @websites.each do |website| %>
   <tr>
+    <td><%= website.user.name %></td>
     <td><%= website.content %></td>
     <td><%= link_to '詳細', website_path(website.id) %></td>
     <td><%= link_to '編集', edit_website_path(website.id) %></td>
