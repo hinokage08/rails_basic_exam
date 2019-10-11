@@ -48,7 +48,7 @@ class WebsitesController < ApplicationController
   private
 
   def website_params
-    params.require(:website).permit(:content)
+    params.require(:website).permit(:content, :image, :image_cache)
   end
 
   def set_website
