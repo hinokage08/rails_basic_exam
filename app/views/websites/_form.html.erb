@@ -10,11 +10,10 @@
       </div>
     <% end %>
     <div class="Website_content">
-      <%= form.label :content %>
-      <%= form.text_field :content %>
+      <%= form.text_area :content,size: "40x5",class: "text_area-control"%>
     </div>
     <div class="Website_image">
-      <%= image_tag(@website.image.url) if @website.image && @website.image.url %>
+      <%= image_tag(@website.image.url) if @website.image && @website.image.url %></p>
       <%= form.file_field :image %>
       <%= form.hidden_field :image_cache %>
     </div>

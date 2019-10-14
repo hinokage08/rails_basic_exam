@@ -1,20 +1,21 @@
-<h1>Facebook</h1>
 <p><%= notice %></p>
+<p><%= link_to '新しく投稿する', new_website_path %></p>
 
-<table>
-  <tr>
-    <th>ユーザー名</th>
-    <th>内容</th>
-  </tr>
 <% @websites.each do |website| %>
-  <tr>
-    <td><%= website.user.name %></td>
-    <td><%= website.content %></td>
-    <td><%= link_to '詳細', website_path(website.id) %></td>
-    <td><%= link_to '編集', edit_website_path(website.id) %></td>
-    <td><%= link_to '削除', website_path(website.id), method: :delete,data: { confirm: '本当に削除していいですか'} %></td>
-  </tr>
+<div class="user_timeline">
+  <div class="user_name">
+    <%= website.user.name %>
+  </div>
+  <div class="user_content">
+    <%= website.content %>
+  </div>
+  <div class="user_image">
+    <%= image_tag website.image.url %>
+  </div>
+  <div class="user_option">
+    <%= link_to image_tag('show.png', class:'show_image'),website_path(website.id) %>
+    <%= link_to image_tag('edit.png', class: 'edit_image'), edit_website_path(website.id) %>
+    <%= link_to image_tag('trash.png', class: 'trash_image'), website_path(website.id), method: :delete ,data:{ confirm: '本当に削除してもよろしいですか？'} %>
+  </div>
+  </div>
 <% end %>
-</table>
-
-<%= link_to '新しく投稿する', new_website_path %>
