@@ -1,5 +1,6 @@
 class WebsitesController < ApplicationController
   before_action :set_website, only: [:show, :edit, :update, :destroy]
+  before_action :block_not_login_user, only: [:new]
   def index
     @websites = Website.all
   end
@@ -53,5 +54,11 @@ class WebsitesController < ApplicationController
 
   def set_website
     @website = Website.find(params[:id])
+  end
+
+  def block_not_login_user
+    if logged_in? == false
+      redirect_to new_user_path
+    end
   end
 end
