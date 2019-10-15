@@ -13,7 +13,7 @@
       <%= form.text_area :content,size: "40x5",class: "text_area-control"%>
     </div>
     <div class="Website_image">
-      <%= image_tag(@website.image.url) if @website.image && @website.image.url %></p>
+      <%= image_tag(@website.image.url) if @website.image && @website.image.url %>
       <%= form.file_field :image %>
       <%= form.hidden_field :image_cache %>
     </div>
